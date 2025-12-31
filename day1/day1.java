@@ -19,23 +19,28 @@ public class day1 {
                 //System.out.println("Value: " + numberOfRotation);
 
                 if (direction == 'L'){
-                    dial -= numberOfRotation;
-
-                    while(dial < 0){
-                        int negativeNum = dial + 1;   //makes sure after 0 the dial moves to 90
-                        dial = 90 + negativeNum;
+                    for(int i = 0; i < numberOfRotation; i++){
+                        dial--;
+                        //System.out.println("Dial value: " + dial);
+                        if(dial < 0){
+                            dial = 99;
+                            //System.out.println("Dial value: " + dial);
+                        }
                     }
                 } else if (direction == 'R'){
-                    dial += numberOfRotation;
-
-                    while(dial > 90) {
-                        int positiveNum = dial-1;
-                        dial = 0 + positiveNum;
+                    for(int i = 0; i < numberOfRotation; i++){
+                        dial++;
+                        //System.out.println("Dial value: " + dial);
+                        if(dial > 99){
+                            dial = 0;
+                            //System.out.println("Dial value: " + dial);
+                        }
                     }
                 }
-
+                //System.out.println("Line: "+line);
+                //System.out.println("Dial at each line: "+dial);
                 if (dial == 0){
-                        count++;
+                    count++;
                     }
             }
         } catch(Exception e){
